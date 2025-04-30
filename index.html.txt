@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Your Name</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#writing">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Write a short bio — mention your journalism and CS background.</p>
+  </section>
+
+  <section id="projects">
+    <h2>Computer Science Projects</h2>
+    <ul>
+      <li><strong>Project 1:</strong> Description with <a href="#">GitHub link</a></li>
+      <li><strong>Project 2:</strong> Description with <a href="#">Demo or repo</a></li>
+    </ul>
+  </section>
+
+  <section id="writing">
+    <h2>Journalism Work</h2>
+    <ul>
+      <li><strong>Article Title:</strong> <a href="#">Link to publication</a></li>
+      <li><strong>Another Article:</strong> <a href="#">Link</a></li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+    <p>LinkedIn | GitHub | Twitter</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Your Name</p>
+  </footer>
+</body>
+</html>
