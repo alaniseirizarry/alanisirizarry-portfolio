@@ -4,10 +4,348 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alanis Irizarry | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #faf8f6 0%, #f5f1ed 100%);
+      color: #3d3d3d;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.3;
+      background: linear-gradient(45deg, #fef3f3 0%, #fef9f5 25%, #f8f4f1 50%, #fef3f3 75%, #fef9f5 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: linear-gradient(135deg, #fdfbfa 0%, #f8f4f1 100%);
+      color: #3d3d3d;
+      padding: 1.5rem 0;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(218, 165, 165, 0.2);
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 2rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #3d3d3d;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    nav {
+      animation: fadeIn 0.8s ease 0.2s backwards;
+    }
+
+    nav a {
+      color: #6b6b6b;
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #daa5a5 0%, #c99090 100%);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c99090;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      animation: slideUp 0.8s ease;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #3d3d3d;
+      font-weight: 700;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #daa5a5 0%, #c99090 100%);
+      border-radius: 2px;
+    }
+
+    #about p {
+      font-size: 1.15rem;
+      line-height: 1.9;
+      color: #5a5a5a;
+      max-width: 800px;
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+      border-left: 4px solid #daa5a5;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #about p:hover {
+      transform: translateX(5px);
+      box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      border-top: 3px solid transparent;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #daa5a5 0%, #c99090 100%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 40px rgba(218, 165, 165, 0.15);
+    }
+
+    .card h3 {
+      color: #3d3d3d;
+      font-weight: 600;
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: #6b6b6b;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      color: white;
+      background: linear-gradient(135deg, #daa5a5 0%, #c99090 100%);
+      padding: 0.7rem 1.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(218, 165, 165, 0.25);
+    }
+
+    .card a::after {
+      content: '→';
+      transition: transform 0.3s ease;
+    }
+
+    .card a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(218, 165, 165, 0.35);
+    }
+
+    .card a:hover::after {
+      transform: translateX(4px);
+    }
+
+    #contact {
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      border-top: 4px solid #daa5a5;
+    }
+
+    #contact p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+      color: #5a5a5a;
+    }
+
+    #contact a {
+      color: #c99090;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    #contact a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #c99090;
+      transition: width 0.3s ease;
+    }
+
+    #contact a:hover::after {
+      width: 100%;
+    }
+
+    #contact a:hover {
+      color: #a67878;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2.5rem 0;
+      background: linear-gradient(135deg, #3d3d3d 0%, #2a2a2a 100%);
+      color: #e8e8e8;
+      margin-top: 5rem;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Scroll indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #daa5a5 0%, #c99090 100%);
+      z-index: 101;
+      transition: width 0.1s ease;
+    }
+
+    @media (max-width: 600px) {
+      header .container {
+        flex-direction: column;
+        padding: 0 1rem;
+      }
+      
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      nav {
+        margin-top: 1rem;
+      }
+      
+      nav a {
+        display: inline-block;
+        margin: 0.5rem 0.8rem;
+        font-size: 0.95rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .card-container {
+        gap: 1.5rem;
+      }
+
+      #about p {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="bg-gradient"></div>
+  <div class="scroll-indicator" id="scrollIndicator"></div>
+
   <header>
     <div class="container">
       <h1>Alanis Irizarry</h1>
@@ -19,70 +357,79 @@
       </nav>
     </div>
   </header>
-
+  
   <main>
     <section id="about" class="section">
       <h2>About Me</h2>
       <p>
-        I’m a student studying Journalism and Computer Science, learning how to communicate ideas clearly and build useful technology. I’m interested in how storytelling and problem-solving intersect—whether I’m writing a news article or building an app. I'm exploring how digital tools can empower both.
+        I'm a student studying Journalism and Computer Science, exploring how storytelling and technology intersect. Whether I'm writing a news article or building an app, I'm interested in how digital tools can amplify communication and solve real problems.
       </p>
     </section>
-
+    
     <section id="journalism" class="section">
       <h2>Journalism Work</h2>
       <div class="card-container">
         <div class="card">
           <h3>Aquatic Invasions</h3>
-          <p>Published in JOR420 class, 2025</p>
-          <a href="https://storymaps.arcgis.com/stories/c914a0f2cd29479b95e2230a668a370f" target="_blank">Read StoryMap</a>
+          <p>Interactive StoryMap exploring environmental challenges in marine ecosystems</p>
+          <a href="https://storymaps.arcgis.com/stories/c914a0f2cd29479b95e2230a668a370f" target="_blank">View Project</a>
         </div>
         <div class="card">
           <h3>Anchor Reporting</h3>
-          <p>Video package in JOR330, 2024</p>
+          <p>Video news package demonstrating on-camera reporting skills</p>
           <a href="https://drive.google.com/file/d/14eTZzA5kjPzsAe_3JAImwrAxpuRkwXi9/view?usp=sharing" target="_blank">Watch Video</a>
         </div>
         <div class="card">
           <h3>Earth Day Package</h3>
-          <p>Video package in JOR330, 2024</p>
+          <p>Environmental journalism piece highlighting sustainability initiatives</p>
           <a href="https://drive.google.com/file/d/1raXM-Jwdeyy6Ues7RHACEmFjmbxo8jfr/view?usp=sharing" target="_blank">Watch Video</a>
         </div>
       </div>
     </section>
-
+    
     <section id="cs" class="section">
       <h2>Computer Science Projects</h2>
       <div class="card-container">
         <div class="card">
           <h3>Momentum Fitness App</h3>
-          <p>Team project built in FlutterFlow.</p>
+          <p>Collaborative fitness tracking application built with FlutterFlow</p>
           <a href="https://momentum3-n4nbqf.flutterflow.app" target="_blank">Launch App</a>
         </div>
         <div class="card">
           <h3>To-Do App</h3>
-          <p>Personal productivity tool.</p>
+          <p>Personal productivity tool for task management and organization</p>
           <a href="https://to-do-gourza.flutterflow.app/" target="_blank">Launch App</a>
         </div>
         <div class="card">
           <h3>My AI App</h3>
-          <p>Experimenting with AI interfaces.</p>
+          <p>Experimental interface exploring AI-powered user interactions</p>
           <a href="https://my-a-i-3oarl8.flutterflow.app/" target="_blank">Launch App</a>
         </div>
       </div>
     </section>
-
+    
     <section id="contact" class="section">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:alaniseirizarry@gmail.com">alaniseirizarry@gmail.com</a></p>
       <p>
-        <a href="https://www.linkedin.com/in/alanis-irizarry-9496b830b/" target="_blank">LinkedIn</a> |
+        <a href="https://www.linkedin.com/in/alanis-irizarry-9496b830b/" target="_blank">LinkedIn</a> | 
         <a href="https://github.com/alaniseirizarry" target="_blank">GitHub</a>
       </p>
     </section>
   </main>
-
+  
   <footer>
     <p>© 2025 Alanis Irizarry</p>
   </footer>
+
+  <script>
+    // Scroll progress indicator
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = (scrollTop / scrollHeight) * 100;
+      document.getElementById('scrollIndicator').style.width = scrollPercent + '%';
+    });
+  </script>
 </body>
 </html>
-
