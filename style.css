@@ -1,99 +1,224 @@
 /* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Poppins', sans-serif;
   margin: 0;
-  background: #f9f9f9;
-  color: #333;
-  line-height: 1.6;
+  background: linear-gradient(135deg, #fff5f7 0%, #ffe8f0 100%);
+  color: #2d2d2d;
+  line-height: 1.7;
 }
 
 header {
-  background: #1e1e2f;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
   color: white;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
+  box-shadow: 0 4px 20px rgba(255, 107, 157, 0.3);
 }
 
 header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 960px;
+  max-width: 1100px;
   margin: auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 nav a {
   color: #fff;
-  margin-left: 1rem;
+  margin-left: 2rem;
   text-decoration: none;
   font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 nav a:hover {
-  color: #f0a500;
+  transform: translateY(-2px);
 }
 
 .section {
-  max-width: 960px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 2rem;
 }
 
 h1, h2 {
-  color: #1e1e2f;
+  color: #c44569;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .card {
   background: white;
-  border: 1px solid #ddd;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
+  border: none;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(255, 107, 157, 0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b9d 0%, #c44569 100%);
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(255, 107, 157, 0.25);
+}
+
+.card h3 {
+  color: #c44569;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.card p {
+  color: #5a5a5a;
+  line-height: 1.8;
 }
 
 .card a {
   display: inline-block;
-  margin-top: 0.5rem;
-  color: #1e1e2f;
+  margin-top: 1rem;
+  color: #ff6b9d;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.card a::after {
+  content: '→';
+  position: absolute;
+  right: 0;
+  transition: transform 0.3s ease;
 }
 
 .card a:hover {
-  color: #f0a500;
+  color: #c44569;
+  padding-right: 2rem;
+}
+
+.card a:hover::after {
+  transform: translateX(5px);
 }
 
 footer {
   text-align: center;
-  padding: 2rem 0;
-  background: #1e1e2f;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #c44569 0%, #8e2a4a 100%);
   color: white;
-  margin-top: 3rem;
+  margin-top: 5rem;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+}
+
+footer a {
+  color: #ffb3c9;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* Buttons if you have any */
+button, .btn {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+button:hover, .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 157, 0.4);
 }
 
 @media (max-width: 600px) {
   header .container {
     flex-direction: column;
+    padding: 0 1rem;
   }
-
+  
   nav {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
   }
-
+  
   nav a {
-    display: block;
-    margin: 0.5rem 0;
+    display: inline-block;
+    margin: 0.5rem 0.8rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.6rem;
+  }
+  
+  .card-container {
+    gap: 1.5rem;
   }
 }
